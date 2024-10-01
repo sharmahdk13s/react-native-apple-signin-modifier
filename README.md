@@ -1,2 +1,33 @@
-# react-native-apple-signin-modifier
-React-Native library which provides short discovery about how to integrate Turbo modules using react-native code with iOS and Android native code.
+# react-native-modifier
+
+package modifier
+
+## Installation
+
+```sh
+npm install react-native-modifier
+```
+
+## Usage
+
+
+```js
+import { multiply } from 'react-native-modifier';
+
+// ...
+
+const result = multiply(3, 7);
+```
+
+
+## Contributing
+
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+## License
+
+MIT
+
+---
+
+Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
