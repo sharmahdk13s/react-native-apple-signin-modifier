@@ -1,6 +1,7 @@
 # react-native-modifier
 
-package modifier
+React-Native custom package modifier,
+React-Native custom library which provides short discovery about how to integrate Turbo modules using react-native code with iOS and Android native code.
 
 ## Installation
 
