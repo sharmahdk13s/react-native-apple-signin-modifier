@@ -6,7 +6,20 @@ React-Native custom library which provides short discovery about how to integrat
 ## Installation
 
 ```sh
-npm install react-native-modifier
+yarn install
+
+**For run example workspace directly:**
+yarn example android
+yarn example ios
+
+**For Android example run:**
+yarn android
+
+**For iOS example run:**
+cd ios
+pod install
+cd ..
+yarn ios
 ```
 
 ## Usage
@@ -14,10 +27,50 @@ npm install react-native-modifier
 
 ```js
 import { multiply } from 'react-native-modifier';
-
+**OR**
+import { methodModifier, signInWithApple, configureAndroidAppleAuth, AppleSigninButton } from 'react-native-modifier';
 // ...
 
 const result = multiply(3, 7);
+
+// Configure and run Apple signin and get the signin response
+const onAppleSigning = useCallback(async () => {
+    try {
+      if (Platform.OS == 'android') {
+        await configureAndroidAppleAuth({
+          // The Service ID you registered with Apple
+          clientId: '{your Apple service Id}',
+          // Return URL added to your Apple dev console. We intercept this redirect, but it must still match
+          // the URL you provided to Apple. It can be an empty route on your backend as it's never called.
+          redirectUri: '{your app service call back url}',
+        });
+      }
+
+      let result = await signInWithApple();
+      console.log('result....', result);
+    } catch (error) {
+      console.log('error....', error);
+    }
+  }, []);
+
+  **Apple signin failure or success response from native iOS side using event listener**
+  useEffect(() => {
+    calculate();
+    eventEmitter.addListener('onSigninComplete', (event) => {
+      console.log('Event Success received from Swift:', event);
+    });
+    eventEmitter.addListener('onSigninFail', (event) => {
+      console.log('Event Error received from Swift:', event);
+    });
+
+    return () => {
+      eventEmitter.removeAllListeners('onSigninComplete');
+      eventEmitter.removeAllListeners('onSigninFail');
+    };
+  }, []);
+
+  // Render AppleSigninButton UI directly from native iOS swift code
+ {Platform.OS == 'ios' && (<AppleSigninButton style={styles.appleButtonStyle} />)}
 ```
 
 
