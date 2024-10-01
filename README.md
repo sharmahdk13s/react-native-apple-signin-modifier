@@ -35,6 +35,7 @@ yarn ios
 
 
 ```js
+import { NativeModules } from 'react-native';
 import { multiply } from 'react-native-modifier';
 **OR**
 import { methodModifier, signInWithApple, configureAndroidAppleAuth, AppleSigninButton } from 'react-native-modifier';
@@ -63,6 +64,9 @@ const onAppleSigning = useCallback(async () => {
   }, []);
 
   **Apple signin failure or success response from native iOS side using event listener**
+  const { CustomEventEmitter } = NativeModules;
+  const eventEmitter = new NativeEventEmitter(CustomEventEmitter);
+
   useEffect(() => {
     calculate();
     eventEmitter.addListener('onSigninComplete', (event) => {
