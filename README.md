@@ -22,15 +22,6 @@ cd ..
 yarn ios
 ```
 
-## **For iOS manually swift file linking**
-- After done **pod install**.
-- Open example -> ios -> ModifierExample.xcworkspace file.
-- Expand **Pods** xcode project at left side panel in Xcode.
-- Expand **Development Pods** folder, scroll down and exapand **react-native-modifier** library pod files.
-- Now drag and drop all .swift files **AppleSignin.swift, AppleSigninButtonManager.swift, AppleSignInManager.swift, CustomEventEmitter.swift and ModifierMultiply.swift** in that folder (react-native-modifier).
-- Click on **Create Bridging header file** blue button from the popup after drag and drop swift files.
-- Now you can build (cmd+B) and run the project successfully.
-
 ## Usage
 
 
