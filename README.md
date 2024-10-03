@@ -30,7 +30,6 @@ import { NativeModules } from 'react-native';
 import { multiply } from 'react-native-modifier';
 **OR**
 import { methodModifier, signInWithApple, configureAndroidAppleAuth, AppleSigninButton } from 'react-native-modifier';
-// ...
 
 const result = multiply(3, 7);
 
