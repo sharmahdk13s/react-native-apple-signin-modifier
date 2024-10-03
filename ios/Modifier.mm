@@ -1,7 +1,5 @@
 #import "Modifier.h"
-#import "react_native_modifier-Swift.h"
 #import "React/RCTBridgeModule.h"
-
 
 @implementation Modifier
 RCT_EXPORT_MODULE()
@@ -28,6 +26,10 @@ RCT_EXPORT_METHOD(signInWithApple:(RCTPromiseResolveBlock)resolve
     [swiftClass signInWithApple:resolve reject: reject];
 }
 
+- (void)configureSignin:(NSDictionary *)configObject resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject { 
+}
+
+
 RCT_EXTERN_METHOD(supportedEvents)
 
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
@@ -36,6 +38,7 @@ RCT_EXTERN_METHOD(supportedEvents)
     return std::make_shared<facebook::react::NativeModifierSpecJSI>(params);
 }
 #endif
+
 
 @end
 

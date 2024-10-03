@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.authors      = package["author"]
 
   s.platforms    = { :ios => min_ios_version_supported }
-  s.source       = { :git => "https://github.com/sharmahdk13s/react-native-modifier.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/sharmahdk13s/react-native-apple-signin-modifier", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm,cpp}"
-
+  s.source_files = "ios/**/*.{h,m,mm,swift,cpp}"
+  s.public_header_files = "ios/*.{h,hpp}"
   # Use install_modules_dependencies helper to install the dependencies if React Native version >=0.71.0.
   # See https://github.com/facebook/react-native/blob/febf6b7f33fdb4904669f99d795eba4c0f95d7bf/scripts/cocoapods/new_architecture.rb#L79.
   if respond_to?(:install_modules_dependencies, true)
@@ -29,7 +29,8 @@ Pod::Spec.new do |s|
       s.pod_target_xcconfig    = {
           "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
           "OTHER_CPLUSPLUSFLAGS" => "-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1",
-          "CLANG_CXX_LANGUAGE_STANDARD" => "c++17"
+          "CLANG_CXX_LANGUAGE_STANDARD" => "c++17",
+           "SWIFT_OBJC_BRIDGING_HEADER" => "../../../ios/react-native-modifier-Bridging-Header.h"
       }
       s.dependency "React-Codegen"
       s.dependency "RCT-Folly"

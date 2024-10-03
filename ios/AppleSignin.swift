@@ -7,11 +7,11 @@
 import Foundation
 import AuthenticationServices
 
-
-class AppleSignin: NSObject {
+@objc(AppleSignin)
+public class AppleSignin: NSObject {
     
     @objc
-    func signInWithApple(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+    public func signInWithApple(_ resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         AppleSignInManager.shared.startSignInWithAppleFlow(appleBtn: false)
         // Simulate an asynchronous operation, e.g., a network request
         DispatchQueue.global().async {
